@@ -1,0 +1,29 @@
+<section class="latest section">
+  <div class="section-inner">
+    <h2 class="heading">Projects</h2>
+    <div class="content">
+      <div *ngFor="let project of projects; last as isLast">
+        <div class="item row text-center">
+          <h3 class="title">
+            <a *ngIf="project.projectLink; else elseBlock" href="{{project.projectLink}}"
+               target="_blank">{{project.title}}</a>
+            <ng-template #elseBlock>{{project.title}}</ng-template>
+          </h3>
+          <p class="summary" *ngIf="project.summary">{{project.summary}}</p>
+          <div class="featured-image" *ngIf="project.picturePath">
+            <a *ngIf="project.pictureLink" href="{{project.pictureLink}}" target="_blank">
+              <img class="img-responsive project-image" src="{{project.picturePath}}" alt="{{project.title}}"/>
+            </a>
+            <img *ngIf="!project.pictureLink" class="img-responsive project-image" src="{{project.picturePath}}" alt="{{project.title}}"/>
+          </div>
+          <div class="desc text-left">
+            <p *ngFor="let item of project.description">{{item}}</p>
+            <p *ngIf="project.projectLink"><a class="more-link" href="{{project.projectLink}}" target="_blank"><i
+              class="fa fa-external-link"></i> Find out more</a></p>
+          </div><!--//desc-->
+        </div>
+        <hr *ngIf="!isLast" class="divider"/>
+      </div>
+    </div><!--//content-->
+  </div><!--//section-inner-->
+</section><!--//section-->

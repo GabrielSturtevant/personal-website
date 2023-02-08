@@ -1,0 +1,11 @@
+<section class="experience section">
+  <div class="section-inner">
+    <h2 class="heading">Work Experience</h2>
+    <div class="content">
+      <div class="item" *ngFor="let job of jobs">
+        <h3 class="title">{{job.title}} - <span class="place"><a href="{{job.website}}" target=blank>{{job.company}}</a></span> <span class="year"> ({{job.dateRange}})</span></h3>
+        <li *ngFor="let descriptor of job.description">{{descriptor}}</li>
+      </div><!--//item-->
+    </div><!--//content-->
+  </div><!--//section-inner-->
+</section><!--//section-->
