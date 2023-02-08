@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { CodingMusicComponent } from './coding-music.component';
+import {CodingMusicComponent} from './coding-music.component';
 
 describe('CodingMusicComponent', () => {
   let component: CodingMusicComponent;
@@ -8,9 +8,9 @@ describe('CodingMusicComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CodingMusicComponent ]
+      declarations: [CodingMusicComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CodingMusicComponent);
     component = fixture.componentInstance;

@@ -1,6 +1,8 @@
 # GitHub Activity Stream Widget
 
-This is a small Javascript plugin that creates a stream of your recent GitHub activity. It displays the user's name, username, photo, and a list of each individual activity type. Click [here](https://caseyscarborough.github.io/github-activity) for a demo.
+This is a small Javascript plugin that creates a stream of your recent GitHub activity. It displays the user's name,
+username, photo, and a list of each individual activity type.
+Click [here](https://caseyscarborough.github.io/github-activity) for a demo.
 
 A sample image of the activity stream is shown below:
 
@@ -8,7 +10,9 @@ A sample image of the activity stream is shown below:
 
 ## Dependencies
 
-The two dependencies for the plugin are the [Mustache](https://github.com/janl/mustache.js/) templating library and [Octicons](https://octicons.github.com/) (if you want the icons to show). You can include these along with the scripts for the plugin in the head of your page with the following HTML:
+The two dependencies for the plugin are the [Mustache](https://github.com/janl/mustache.js/) templating library
+and [Octicons](https://octicons.github.com/) (if you want the icons to show). You can include these along with the
+scripts for the plugin in the head of your page with the following HTML:
 
 ```html
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/octicons/2.0.2/octicons.min.css">

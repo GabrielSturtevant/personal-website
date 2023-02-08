@@ -4,7 +4,8 @@ This plugin can be used to read a RSS feed and transform it into a custom piece 
 
 ## Note about feedrapp.info
 
-Chances are that you are experiencing a downtime on feedrapp.info. Please update to the latest version which uses www.feedrapp.info and which might support SSL in the near future.
+Chances are that you are experiencing a downtime on feedrapp.info. Please update to the latest version which
+uses www.feedrapp.info and which might support SSL in the near future.
 
 ## Setup
 
@@ -29,7 +30,8 @@ Chances are that you are experiencing a downtime on feedrapp.info. Please update
 Demo link for above code: http://embed.plnkr.co/WQRoCYLld162uplnz1rc/preview
 
 Note: Moment.js is _optional_. If you include it, jquery.rss will use it to format dates.
-If you do not want to include Moment.js, you may opt for providing your own date formatting function, or for not formatting dates at all.
+If you do not want to include Moment.js, you may opt for providing your own date formatting function, or for not
+formatting dates at all.
 
 ## Options
 
@@ -118,13 +120,20 @@ If you do not want to include Moment.js, you may opt for providing your own date
 
 ### Note about the host option
 
-Since version 3.0.0 the plugin is no longer using the Google Feed API but a drop-in replacement called [feedr](https://github.com/sdepold/feedr). That server is currently running on Heroku and might have some downtimes, interruptions or unexpected issues. While I will try to keep those problems as rare as possible, it can totally happen from time to time. I might move the service to some other provide or even improve the infrastructure.
+Since version 3.0.0 the plugin is no longer using the Google Feed API but a drop-in replacement
+called [feedr](https://github.com/sdepold/feedr). That server is currently running on Heroku and might have some
+downtimes, interruptions or unexpected issues. While I will try to keep those problems as rare as possible, it can
+totally happen from time to time. I might move the service to some other provide or even improve the infrastructure.
 
-If you don't want to rely on the [provided server](http://feedrapp.info) and instead run your own version, you can just download feedr, install the dependencies and run it. As written above, you can specify the host which is used to parse the feeds with the `host` option.
+If you don't want to rely on the [provided server](http://feedrapp.info) and instead run your own version, you can just
+download feedr, install the dependencies and run it. As written above, you can specify the host which is used to parse
+the feeds with the `host` option.
 
 ## Templating
 
-As seen in the options, you can specify a template in order to transform the json objects into HTML. In order to that, you can either define the outer template (which describes the html around the entries) or the entry template (which describes the html of an entry).
+As seen in the options, you can specify a template in order to transform the json objects into HTML. In order to that,
+you can either define the outer template (which describes the html around the entries) or the entry template (which
+describes the html of an entry).
 
 The basic format of those templates are:
 
@@ -201,14 +210,17 @@ This will request 100 entries via the Feed API and renders the first 10 matching
 
 ## Testing
 
-The test suite is using BusterJS. In order to successfully run the tests you will need [phantomjs](http://phantomjs.org/).
+The test suite is using BusterJS. In order to successfully run the tests you will
+need [phantomjs](http://phantomjs.org/).
 If that is installed you only have to run `npm test`.
 
 ## Authors/Contributors
 
 - DaWanda GmbH ([Website](http://dawanda.com))
-- Sascha Depold ([Twitter](http://twitter.com/sdepold) | [Github](http://github.com/sdepold) | [Website](http://depold.com))
-- Steffen Schröder  ([Twitter](http://twitter.com/ChaosSteffen) | [Github](http://github.com/ChaosSteffen) | [Website](http://schroeder-blog.de))
+- Sascha
+  Depold ([Twitter](http://twitter.com/sdepold) | [Github](http://github.com/sdepold) | [Website](http://depold.com))
+- Steffen
+  Schröder  ([Twitter](http://twitter.com/ChaosSteffen) | [Github](http://github.com/ChaosSteffen) | [Website](http://schroeder-blog.de))
 
 ## Misc
 

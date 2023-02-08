@@ -172,7 +172,7 @@ describe('jquery.rss', function () {
         done();
       });
 
-      this.element.rss(this.feedUrl, { ssl: true });
+      this.element.rss(this.feedUrl, {ssl: true});
     });
 
     it('uses feedrapp.info if ssl is turned off', function (done) {
@@ -181,7 +181,7 @@ describe('jquery.rss', function () {
         done();
       });
 
-      this.element.rss(this.feedUrl, { ssl: false });
+      this.element.rss(this.feedUrl, {ssl: false});
     });
 
     it('does not overwrite the host if it was specified manually', function (done) {
@@ -190,7 +190,7 @@ describe('jquery.rss', function () {
         done();
       });
 
-      this.element.rss(this.feedUrl, { ssl: true, host: 'foo.com' });
+      this.element.rss(this.feedUrl, {ssl: true, host: 'foo.com'});
     });
   });
 
@@ -348,7 +348,7 @@ describe('jquery.rss', function () {
         tests.forEach(function (test) {
           it(test.name, function (done) {
             var $container = this.element;
-            var self       = this;
+            var self = this;
 
             this.fakeGetJSON(test.test);
 
@@ -386,7 +386,7 @@ describe('jquery.rss', function () {
       it('renders german dates if enabled', function (done) {
         var $container = this.element;
 
-        $container.rss(this.feedUrl, { dateLocale: 'de' }, function () {
+        $container.rss(this.feedUrl, {dateLocale: 'de'}, function () {
           var renderedContent = $container.html().replace(/\n/g, '');
 
           expect(renderedContent).toMatch(/<a href=".*">\[.*Samstag Mai 22\.\] RSS<\/a>/);

@@ -1,11 +1,11 @@
 'use strict';
 
 // 3rd-party modules
-var buster      = require('gulp-busterjs');
-var gulp        = require('gulp');
-var jscs        = require('gulp-jscs');
-var jshint      = require('gulp-jshint');
-var mdBlock     = require('gulp-markdown-code-blocks');
+var buster = require('gulp-busterjs');
+var gulp = require('gulp');
+var jscs = require('gulp-jscs');
+var jshint = require('gulp-jshint');
+var mdBlock = require('gulp-markdown-code-blocks');
 var runSequence = require('run-sequence');
 
 gulp.task('default', function (done) {

@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SpokenLanguagesComponent } from './spoken-languages.component';
+import {SpokenLanguagesComponent} from './spoken-languages.component';
 
 describe('SpokenLanguagesComponent', () => {
   let component: SpokenLanguagesComponent;
@@ -8,9 +8,9 @@ describe('SpokenLanguagesComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SpokenLanguagesComponent ]
+      declarations: [SpokenLanguagesComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SpokenLanguagesComponent);
     component = fixture.componentInstance;

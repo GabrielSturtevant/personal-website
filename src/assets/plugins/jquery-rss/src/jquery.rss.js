@@ -2,11 +2,11 @@
   'use strict';
 
   var RSS = function (target, url, options, callback) {
-    this.target       = target;
+    this.target = target;
 
-    this.url          = url;
-    this.html         = [];
-    this.effectQueue  = [];
+    this.url = url;
+    this.html = [];
+    this.effectQueue = [];
 
     this.options = $.extend({
       ssl: false,
@@ -25,8 +25,10 @@
       error: function () {
         console.log('jQuery RSS: url doesn\'t link to RSS-Feed');
       },
-      onData: function () {},
-      success: function () {}
+      onData: function () {
+      },
+      success: function () {
+      }
     }, options || {});
 
     // The current SSL certificate is only valid for *.herokuapp.com
@@ -52,8 +54,8 @@
 
   RSS.prototype.load = function (callback) {
     var apiProtocol = 'http' + (this.options.ssl ? 's' : '');
-    var apiHost     = apiProtocol + '://' + this.options.host;
-    var apiUrl      = apiHost + '?callback=?&q=' + encodeURIComponent(this.url);
+    var apiHost = apiProtocol + '://' + this.options.host;
+    var apiUrl = apiHost + '?callback=?&q=' + encodeURIComponent(this.url);
 
     // set limit to offsetEnd if offset has been set
     if (this.options.offsetStart && this.options.offsetEnd) {
@@ -76,11 +78,11 @@
 
     this.load(function (data) {
       try {
-        self.feed    = data.responseData.feed;
+        self.feed = data.responseData.feed;
         self.entries = data.responseData.feed.entries;
       } catch (e) {
         self.entries = [];
-        self.feed    = null;
+        self.feed = null;
         return self.options.error.call(self);
       }
 
@@ -113,7 +115,7 @@
       if (self.options.effect === 'show') {
         target.before($html);
       } else {
-        $html.css({ display: 'none' });
+        $html.css({display: 'none'});
         target.before($html);
         self.applyEffect($html, self.options.effect);
       }
@@ -123,13 +125,13 @@
   };
 
   RSS.prototype.generateHTMLForEntries = function () {
-    var self   = this;
-    var result = { entries: [], layout: null };
+    var self = this;
+    var result = {entries: [], layout: null};
 
     $(this.entries).each(function () {
-      var entry       = this;
+      var entry = this;
       var offsetStart = self.options.offsetStart;
-      var offsetEnd   = self.options.offsetEnd;
+      var offsetEnd = self.options.offsetEnd;
       var evaluatedString;
 
       // offset required
@@ -189,10 +191,10 @@
         $element.slideDown(callback);
         break;
       case 'slideSynced':
-        self.effectQueue.push({ element: $element, effect: 'slide' });
+        self.effectQueue.push({element: $element, effect: 'slide'});
         break;
       case 'slideFastSynced':
-        self.effectQueue.push({ element: $element, effect: 'slideFast' });
+        self.effectQueue.push({element: $element, effect: 'slideFast'});
         break;
     }
   };
@@ -217,7 +219,7 @@
 
   RSS.prototype.evaluateStringForEntry = function (string, entry) {
     var result = string;
-    var self   = this;
+    var self = this;
 
     $(string.match(/(\{.*?\})/g)).each(function () {
       var token = this.toString();
@@ -273,12 +275,12 @@
     }
 
     return $.extend({
-      feed:      this.feedTokens,
-      url:       entry.link,
-      author:    entry.author,
-      date:      this.getFormattedDate(entry.publishedDate),
-      title:     entry.title,
-      body:      entry.content,
+      feed: this.feedTokens,
+      url: entry.link,
+      author: entry.author,
+      date: this.getFormattedDate(entry.publishedDate),
+      title: entry.title,
+      body: entry.content,
       shortBody: entry.contentSnippet,
 
       bodyPlain: (function (entry) {
@@ -294,14 +296,13 @@
       })(entry),
 
       shortBodyPlain: entry.contentSnippet.replace(/<\/?[^>]+>/gi, ''),
-      index:          $.inArray(entry, this.entries),
-      totalEntries:   this.entries.length,
+      index: $.inArray(entry, this.entries),
+      totalEntries: this.entries.length,
 
-      teaserImage:    (function (entry) {
+      teaserImage: (function (entry) {
         try {
           return entry.content.match(/(<img.*?>)/gi)[0];
-        }
-        catch (e) {
+        } catch (e) {
           return '';
         }
       })(entry),
@@ -309,8 +310,7 @@
       teaserImageUrl: (function (entry) {
         try {
           return entry.content.match(/(<img.*?>)/gi)[0].match(/src="(.*?)"/)[1];
-        }
-        catch (e) {
+        } catch (e) {
           return '';
         }
       })(entry)
@@ -319,8 +319,8 @@
 
   RSS.prototype.getValueForToken = function (_token, entry) {
     var tokenMap = this.getTokenMap(entry);
-    var token    = _token.replace(/[\{\}]/g, '');
-    var result   = tokenMap[token];
+    var token = _token.replace(/[\{\}]/g, '');
+    var result = tokenMap[token];
 
     if (typeof result !== 'undefined') {
       return ((typeof result === 'function') ? result(entry, tokenMap) : result);

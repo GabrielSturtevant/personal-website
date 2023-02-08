@@ -14,7 +14,8 @@
             <a *ngIf="project.pictureLink" href="{{project.pictureLink}}" target="_blank">
               <img class="img-responsive project-image" src="{{project.picturePath}}" alt="{{project.title}}"/>
             </a>
-            <img *ngIf="!project.pictureLink" class="img-responsive project-image" src="{{project.picturePath}}" alt="{{project.title}}"/>
+            <img *ngIf="!project.pictureLink" class="img-responsive project-image" src="{{project.picturePath}}"
+                 alt="{{project.title}}"/>
           </div>
           <div class="desc text-left">
             <p *ngFor="let item of project.description">{{item}}</p>

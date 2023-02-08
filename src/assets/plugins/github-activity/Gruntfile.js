@@ -7,18 +7,18 @@ var config = {
 
 var pkg = require('./package.json');
 
-module.exports = function(grunt) {
+module.exports = function (grunt) {
   grunt.initConfig({
     config: config,
     pkg: pkg,
     copy: {
       dist: {
         files: [{
-            expand: true,
-            cwd: '<%= config.bower %>/octicons/octicons',
-            src: 'octicons.ttf',
-            dest: '<%= config.dist %>/octicons'
-          },
+          expand: true,
+          cwd: '<%= config.bower %>/octicons/octicons',
+          src: 'octicons.ttf',
+          dest: '<%= config.dist %>/octicons'
+        },
           {
             expand: true,
             cwd: '<%= config.bower %>/octicons/octicons',
@@ -82,6 +82,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask( "wipe", [ "clean" ])
-  grunt.registerTask( "default", [ "copy", "cssmin", "uglify:dist" ] );
+  grunt.registerTask("wipe", ["clean"])
+  grunt.registerTask("default", ["copy", "cssmin", "uglify:dist"]);
 };

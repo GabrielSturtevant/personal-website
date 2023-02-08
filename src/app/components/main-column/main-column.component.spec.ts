@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MainColumnComponent } from './main-column.component';
+import {MainColumnComponent} from './main-column.component';
 
 describe('MainColumnComponent', () => {
   let component: MainColumnComponent;
@@ -8,9 +8,9 @@ describe('MainColumnComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MainColumnComponent ]
+      declarations: [MainColumnComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(MainColumnComponent);
     component = fixture.componentInstance;
