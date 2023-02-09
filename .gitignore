@@ -3,6 +3,7 @@
 # Images
 /src/assets/images
 # Compiled output
+/deploy
 /dist
 /tmp
 /out-tsc
