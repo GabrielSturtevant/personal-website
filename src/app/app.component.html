@@ -1,11 +1,13 @@
-<app-header></app-header>
+<div *ngIf="isLoaded">
+  <app-header></app-header>
 
-<div class="container sections-wrapper">
-  <div class="row">
-    <app-main-column></app-main-column>
+  <div class="container sections-wrapper">
+    <div class="row">
+      <app-main-column></app-main-column>
 
-    <app-side-column></app-side-column>
-  </div><!--//row-->
-</div><!--//masonry-->
+      <app-side-column></app-side-column>
+    </div><!--//row-->
+  </div><!--//masonry-->
 
-<app-footer></app-footer>
+  <app-footer></app-footer>
+</div>

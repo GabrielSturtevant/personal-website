@@ -11,6 +11,7 @@ export class PersonalProjectsComponent {
   projects: Array<Project> = [];
 
   constructor(private infoService: InfoService) {
-    this.projects = this.infoService.projects;
+    this.projects = this.infoService.projects.sort((a, b) => (a.order > b.order) ? 1 : -1);
+    this.projects.map(item => item.descriptions.sort((a, b) => (a.order > b.order) ? 1 : -1));
   }
 }

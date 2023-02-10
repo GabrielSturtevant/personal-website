@@ -1,11 +1,16 @@
 import {Injectable} from '@angular/core';
-import {Info, INFO, Job, Project} from "./info";
+import {Description, Info, Job, Project, Recommendation} from "./info";
 import {Observable, of, tap} from "rxjs";
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
 })
 export class InfoService {
+  get recommendations(): Array<Recommendation> {
+    return this._recommendations;
+  }
   get linkedin(): string {
     return this._linkedin;
   }
@@ -38,7 +43,7 @@ export class InfoService {
     return this._projects;
   }
 
-  get aboutMe(): Array<string> {
+  get aboutMe(): Array<Description> {
     return this._aboutMe;
   }
 
@@ -50,7 +55,6 @@ export class InfoService {
     return this._name;
   }
 
-  private info: Info = INFO;
   private _name: string = '';
   private _title: string = '';
   private _city: string = '';
@@ -59,16 +63,19 @@ export class InfoService {
   private _website: string = '';
   private _github: string = '';
   private _linkedin: string = '';
-  private _aboutMe: Array<string> = [];
+  private _aboutMe: Array<Description> = [];
   private _projects: Array<Project> = [];
   private _jobs: Array<Job> = [];
+  private _recommendations: Array<Recommendation> = [];
 
-  constructor() {
+  constructor(private http: HttpClient) {
   }
 
   getInfo(): Observable<Info> {
-    return of(this.info).pipe(
+    // return this.http.get<Info>(environment.apiUrl + 'info').pipe(
+    return this.http.get<Info>(environment.apiUrl).pipe(
       tap(next => {
+        console.log('In the subscription:', next)
         this._name = next.name;
         this._title = next.title;
         this._city = next.city;
@@ -77,9 +84,10 @@ export class InfoService {
         this._website = next.website;
         this._github = next.github;
         this._linkedin = next.linkedin;
-        this._aboutMe = next.aboutMe;
+        this._aboutMe = next.about_me;
         this._projects = next.projects;
         this._jobs = next.jobs;
+        this._recommendations = next.recommendations;
       })
     );
   }

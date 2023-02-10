@@ -1,6 +1,7 @@
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {WorkExperienceComponent} from './work-experience.component';
+import {HttpClientTestingModule} from "@angular/common/http/testing";
 
 describe('WorkExperienceComponent', () => {
   let component: WorkExperienceComponent;
@@ -8,7 +9,8 @@ describe('WorkExperienceComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [WorkExperienceComponent]
+      declarations: [WorkExperienceComponent],
+      imports: [HttpClientTestingModule]
     })
       .compileComponents();
 

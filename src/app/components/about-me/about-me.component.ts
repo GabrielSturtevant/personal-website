@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {InfoService} from "../../services/info.service";
+import {Description} from "../../services/info";
 
 @Component({
   selector: 'app-about-me',
@@ -7,9 +8,9 @@ import {InfoService} from "../../services/info.service";
   styleUrls: ['./about-me.component.css']
 })
 export class AboutMeComponent {
-  aboutMe: Array<string> = [];
+  aboutMe: Array<Description> = [];
 
   constructor(private infoService: InfoService) {
-    this.aboutMe = infoService.aboutMe;
+    this.aboutMe = infoService.aboutMe.sort((a, b) => (a.order > b.order) ? 1 : -1);
   }
 }

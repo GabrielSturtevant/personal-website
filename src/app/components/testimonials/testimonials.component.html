@@ -2,13 +2,11 @@
   <div class="section-inner">
     <h2 class="heading">Testimonials</h2>
     <div class="content">
-      <div class="item">
+      <div class="item" *ngFor="let recommendation of recommendations">
         <blockquote class="quote">
-          <p><i class="fa fa-quote-left"></i>Gabriel is a great problem solver and he has a natural ability with a
-            willingness and eagerness to learn. In addition to his great problem solving ability and strong command of
-            computer science!</p>
+          <p *ngFor="let item of recommendation.descriptions; first as isFirst"><i class="fa fa-quote-left" *ngIf="isFirst"></i>{{item.description}}</p>
         </blockquote>
-        <p class="source"><span class="name">Donavon Rosas</span><br/><span class="title">CSUN Peer</span></p>
+        <p class="source"><span class="name">{{recommendation.author}}</span><br/><span class="title">{{recommendation.organization}} - {{recommendation.relation}}</span></p>
       </div><!--//item-->
 
     </div><!--//content-->

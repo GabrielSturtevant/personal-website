@@ -16,6 +16,7 @@ import {EducationComponent} from './components/education/education.component';
 import {SpokenLanguagesComponent} from './components/spoken-languages/spoken-languages.component';
 import {CodingMusicComponent} from './components/coding-music/coding-music.component';
 import {ConferencesComponent} from './components/conferences/conferences.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import {ConferencesComponent} from './components/conferences/conferences.compone
     ConferencesComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

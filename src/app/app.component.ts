@@ -1,5 +1,7 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {InfoService} from "./services/info.service";
+import {Info} from "./services/info";
+import {environment} from "../environments/environment";
 
 @Component({
   selector: 'app-root',
@@ -7,8 +9,21 @@ import {InfoService} from "./services/info.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  isLoaded: boolean = false;
   constructor(private infoService: InfoService) {
-    infoService.getInfo().subscribe();
+    this.getInfo();
+    console.log('Is Production: ',environment.production);
+  }
+
+  getInfo(): void {
+    this.infoService.getInfo().subscribe(
+      data => {
+        this.isLoaded = true;
+      },
+      error => {
+        console.error(error);
+      }
+    )
   }
 
   title = 'PersonalWebsiteAngular';

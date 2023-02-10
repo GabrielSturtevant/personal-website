@@ -5,21 +5,21 @@
       <div *ngFor="let project of projects; last as isLast">
         <div class="item row text-center">
           <h3 class="title">
-            <a *ngIf="project.projectLink; else elseBlock" href="{{project.projectLink}}"
+            <a *ngIf="project.project_link; else elseBlock" href="{{project.project_link}}"
                target="_blank">{{project.title}}</a>
             <ng-template #elseBlock>{{project.title}}</ng-template>
           </h3>
           <p class="summary" *ngIf="project.summary">{{project.summary}}</p>
-          <div class="featured-image" *ngIf="project.picturePath">
-            <a *ngIf="project.pictureLink" href="{{project.pictureLink}}" target="_blank">
-              <img class="img-responsive project-image" src="{{project.picturePath}}" alt="{{project.title}}"/>
+          <div class="featured-image" *ngIf="project.picture_path">
+            <a *ngIf="project.picture_link" href="{{project.picture_link}}" target="_blank">
+              <img class="img-responsive project-image" src="{{project.picture_path}}" alt="{{project.title}}"/>
             </a>
-            <img *ngIf="!project.pictureLink" class="img-responsive project-image" src="{{project.picturePath}}"
+            <img *ngIf="!project.picture_link" class="img-responsive project-image" src="{{project.picture_path}}"
                  alt="{{project.title}}"/>
           </div>
           <div class="desc text-left">
-            <p *ngFor="let item of project.description">{{item}}</p>
-            <p *ngIf="project.projectLink"><a class="more-link" href="{{project.projectLink}}" target="_blank"><i
+            <p *ngFor="let item of project.descriptions">{{item.description}}</p>
+            <p *ngIf="project.project_link"><a class="more-link" href="{{project.project_link}}" target="_blank"><i
               class="fa fa-external-link"></i> Find out more</a></p>
           </div><!--//desc-->
         </div>

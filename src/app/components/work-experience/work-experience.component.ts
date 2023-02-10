@@ -11,6 +11,7 @@ export class WorkExperienceComponent {
   jobs: Array<Job> = [];
 
   constructor(private infoService: InfoService) {
-    this.jobs = infoService.jobs;
+    this.jobs = infoService.jobs.sort((a, b) => (a.order > b.order) ? 1 : -1);
+    this.jobs.map(item => item.descriptions.sort((a, b) => (a.order > b.order) ? 1 : -1))
   }
 }
