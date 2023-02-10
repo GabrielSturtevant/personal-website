@@ -32,4 +32,13 @@ describe('MainColumnComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render render contact', () => {
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.primary')?.children).toHaveSize(3);
+    expect(compiled.querySelector('.primary')?.innerHTML).toContain('app-about-me');
+    expect(compiled.querySelector('.primary')?.innerHTML).toContain('app-work-experience');
+    expect(compiled.querySelector('.primary')?.innerHTML).toContain('app-personal-projects');
+  });
 });

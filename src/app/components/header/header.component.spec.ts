@@ -22,4 +22,25 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render header with details', () => {
+    const name: string = 'random';
+    const title: string = 'words';
+    const linkedin: string = 'go';
+    const github: string = 'here';
+    const email: string = 'dude';
+    component.name = name;
+    component.title = title;
+    component.linkedin = linkedin;
+    component.github = github;
+    component.email = email;
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.container')?.textContent).toContain(name);
+    expect(compiled.querySelector('.container')?.textContent).toContain(title);
+    expect(compiled.querySelector('.container')?.innerHTML).toContain(linkedin);
+    expect(compiled.querySelector('.container')?.innerHTML).toContain(github);
+    expect(compiled.querySelector('.container')?.innerHTML).toContain(email);
+    expect(compiled.querySelector('.list-inline')?.children).toHaveSize(2);
+  });
 });

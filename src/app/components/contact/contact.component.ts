@@ -7,10 +7,10 @@ import {InfoService} from "../../services/info.service";
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent {
-  protected city: string = '';
-  protected phone: string = '';
-  protected email: string = '';
-  protected website: string = '';
+  city: string = '';
+  phone: string = '';
+  email: string = '';
+  website: string = '';
 
   constructor(private infoService: InfoService) {
     this.city = this.infoService.city;

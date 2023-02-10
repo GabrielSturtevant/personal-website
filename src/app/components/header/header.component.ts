@@ -7,11 +7,11 @@ import {InfoService} from "../../services/info.service";
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
-  protected name: string = '';
-  protected title: string = '';
-  protected email: string = '';
-  protected github: string = '';
-  protected linkedin: string = '';
+  name: string = '';
+  title: string = '';
+  email: string = '';
+  github: string = '';
+  linkedin: string = '';
 
   constructor(private infoService: InfoService) {
     this.name = this.infoService.name;
